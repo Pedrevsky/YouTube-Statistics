@@ -15,10 +15,14 @@ channels_df = pd.read_csv("data/channels_with_playlist_id.csv")
 
 video_ids = []
 
-for value in channels_df["playlistId"]:
+for value in channels_df["playlist_id"]:
     video_ids += YT_API.get_video_ids(youtube, value)
+
+
+video_df = YT_API.get_video_details(youtube, video_ids)
+video_df["description"] = video_df["description"].apply(len)
 
 video_stats_df = YT_API.get_video_stats(youtube, video_ids)
 
-with open("data/video_stats.csv", 'a') as f:
-    video_stats_df.to_csv(f, mode='a', header=f.tell()==0)
+video_df.to_csv("data/video_info.csv")
+video_stats_df.to_csv("data/video_stats.csv")

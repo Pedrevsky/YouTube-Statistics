@@ -89,7 +89,7 @@ def get_video_details(youtube, video_ids):
         response = request.execute() 
 
         for video in response['items']:
-            stats_to_keep = {'snippet': ['channelTitle', 'title', 'description', 'tags', 'publishedAt'],
+            stats_to_keep = {'snippet': ['channelId', 'title', 'description', 'tags', 'publishedAt'],
                             'contentDetails': ['duration', 'definition', 'caption']
                             }
             video_info = {}
@@ -118,7 +118,7 @@ def get_video_stats(youtube, video_ids):
         response = request.execute() 
 
         for video in response['items']:
-            stats_to_keep = {'snippet': ['channelId', 'title'],
+            stats_to_keep = {'snippet': ['channelId'],
                             'statistics': ['viewCount', 'likeCount', 'commentCount']                           
                             }
             video_info = {}
