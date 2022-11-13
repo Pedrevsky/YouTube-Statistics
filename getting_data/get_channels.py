@@ -23,13 +23,15 @@ for el in channels_ids:
 
 channels_with_playlist_id_df["channel_id"] = channels_ids
 
-channels_stats_df["channels_ids"] = channels_ids
-channels_stats_df["time"] = pd.to_datetime('today').normalize()
+channels_stats_df["channel_id"] = channels_ids
+channels_stats_df["time"] = pd.to_datetime('today')
 channels_stats_df[["subscribers", "views", "totalVideos"]] = channels_stats_df[["subscribers", "views", "totalVideos"]].apply(pd.to_numeric, errors="coerce")
 
 channels_with_playlist_id_df = channels_with_playlist_id_df.rename(columns={"channelName": "channel_name", "playlistId": "playlist_id"})
 channels_with_playlist_id_df = channels_with_playlist_id_df[["channel_id", "channel_name", "playlist_id"]]
 
+channels_stats_df = channels_stats_df.rename(columns={"totalVideos":"total_videos"})
+channels_stats_df = channels_stats_df[["channel_id", "total_videos", "views", "subscribers", "time"]]
 
 channels_with_playlist_id_df.to_csv("data/channels_with_playlist_id.csv")
 channels_stats_df.to_csv("data/channels_stats.csv")
