@@ -16,7 +16,8 @@ def create_channels_stats_table(curr):
         views BIGINT,
         subscribers BIGINT,
         time DATE NOT NULL DEFAULT CURRENT_DATE,
-        PRIMARY KEY (channel_id, time)  
+        PRIMARY KEY (channel_id, time),
+        FOREIGN KEY (channel_id) REFERENCES channels_with_playlist_id (channel_id) ON UPDATE CASCADE ON DELETE CASCADE  
     )""")
 
     curr.execute(create_table_command)
@@ -48,7 +49,8 @@ def create_video_stats_table(curr):
         comments_count DECIMAL,
         time DATE NOT NULL DEFAULT CURRENT_DATE,
         PRIMARY KEY (video_id, time),
-        FOREIGN KEY (channel_id) REFERENCES channels_with_playlist_id (channel_id) ON UPDATE CASCADE ON DELETE CASCADE
+        FOREIGN KEY (channel_id) REFERENCES channels_with_playlist_id (channel_id) ON UPDATE CASCADE ON DELETE CASCADE,
+        FOREIGN KEY (video_id) REFERENCES video_info (video_id) ON UPDATE CASCADE ON DELETE CASCADE
     )""")
 
     curr.execute(create_table_command)

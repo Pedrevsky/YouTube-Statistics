@@ -22,20 +22,11 @@ create_channels_with_playlist_id_table(curr)
 create_channels_stats_table(curr)
 create_video_info_table(curr)
 create_video_stats_table(curr)
-print("\n\nCreating OK\n\n")
+
 
 append_channels_with_playlist_id_table(curr, channels_with_playlist_id)
 append_channels_stats_table(curr, channels_stats)
 append_video_info_table(curr, video_info)
 append_video_stats_table(curr, video_stats)
 append_video_info_table(curr, video_info)
-print("\n\nAppending OK\n\n")
-
-
-curr.execute("SELECT * FROM channels_with_playlist_id")
-print(len(curr.fetchall()))
-
-append_channels_with_playlist_id_table(curr, video_info)
-
-curr.execute("SELECT * FROM channels_with_playlist_id")
-print(len(curr.fetchall()))
+conn.commit()
