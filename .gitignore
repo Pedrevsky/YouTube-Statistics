@@ -1,3 +1,4 @@
 key.txt
 db_auth.txt
-\scripts\__pycache__\*.pyc
+*.pyc
+data
