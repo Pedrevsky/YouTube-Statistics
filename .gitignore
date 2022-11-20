@@ -1,4 +1,4 @@
 key.txt
 db_auth.txt
 *.pyc
-data
+/data
