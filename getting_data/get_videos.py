@@ -1,3 +1,4 @@
+from os import environ
 import pandas as pd
 from googleapiclient.discovery import build
 import YT_API
@@ -5,8 +6,7 @@ import YT_API
 api_service_name = "youtube"
 api_version = "v3"
 
-with open ("key.txt") as f:
-    api_key = f.read()
+api_key = environ.get("youtube_api_key")
 
 # Get credentials and create an API client
 youtube = build(api_service_name, api_version, developerKey=api_key)
