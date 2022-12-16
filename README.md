@@ -4,9 +4,8 @@
 
 I want data from channels:
  - Dopehouse Records
- - Hashashins
- - Ou7side
- - BorCrew Official
+ - Voodo People
  - Antihype
  - Quequality
- siuu
+ 
+ This project is in progress, I will analyze data in January 2023 (right now i am gathering it every day)
